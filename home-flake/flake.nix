@@ -2,21 +2,19 @@
   description = "Braniacs' home environment flake!";
 
   inputs = {
-    nvim.url = "path:../nvim-flake";
+    nvim-flake.url = "path:../nvim-flake";
   };
 
-  outputs = { self, nvim }: {
+  outputs = { self, nvim-flake }: {
     homeManagerModules.default = { pkgs, ... }: {
       imports = [
-        nvim.homeManagerModules.default
+        nvim-flake.homeManagerModules.default
       ];
+
+      home.stateVersion = "25.05";
 
       # Core user settings
       home.packages = [ pkgs.git ];
-      programs.zsh = {
-        enable = true;
-        # ... zsh config ...
-      };
     };
   };
 }

@@ -12,7 +12,6 @@
           lua print("Loading full user nvim config!")
         '';
       };
-      home.packages = [ pkgs.neovim ];
     };
   };
 }
